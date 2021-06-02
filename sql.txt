@@ -1,0 +1,55 @@
+
+create database livraria;
+
+use livraria;
+
+create table cliente(
+	cpf varchar(15) key,
+	nome varchar(45),
+	endereco varchar(100),
+	telefone varchar(45)
+);
+
+create table livro(
+	idlivro int key auto_increment,
+	nome varchar(45),
+	autor varchar(45),
+	preco float,
+	categoria varchar(45)
+);
+
+create table venda(
+	numerovenda int key auto_increment,
+	datavenda date,
+	valorpagar float,
+	cpf varchar(15),
+	foreign key (cpf) references
+	cliente (cpf)
+);
+
+create table itemvenda (
+	iditemvenda int key auto_increment,
+	numerovenda int,
+	idlivro int,
+	valorparcial float,
+	quantidade int,
+	foreign key (numerovenda) references
+	venda (numerovenda),
+	foreign key (idlivro) references
+	livro (idlivro)
+);
+
+
+
+ALTER TABLE livro
+MODIFY COLUMN idlivro int key auto_increment;
+des
+
+
+
+
+
+
+
+
+);
